@@ -6,30 +6,34 @@ function parse() {
 }
 function OpenDriveFile() {
 
-var files = DriveApp.getFiles();
-var kardex = [];
-
-while (files.hasNext()) {
-  var file = files.next();
+  var files = DriveApp.getFiles();
+  var kardex = [];
+  
+  while (files.hasNext()) {
+    var file = files.next();
     
-  Logger.log(file.getName());
-  if(file.getName() == "PeterLeyva.html")
+    Logger.log(file.getName());
+    if(file.getName() == "PeterLeyva.html")
     {
       Logger.log("Se guardo el kardex");
       desc = file.getBlob().getDataAsString();
     }
-}
-var lines = desc.split(/\r?\n/);
-
-for(var line in lines)
-{
-  kardex.push(line);  
-}
-
-
-
-for(var i =0 ;i<kardex.length; i++){
-  Logger.log(kardex[i]);
-}
+  }
+  
+  //Logger.log(desc);
+ var lines = desc.split(/\r?\n/);
+//  Logger.log(lines);
+//  
+ for (var line = 0; line < lines.length; line++) {
+   kardex.push(lines[line]);
+ }
+  Logger.log(kardex[1564]);
+//  
+//  
+//  
+//  for(var i =0 ;i<kardex.length; i++){
+//    Logger.log(kardex[i]);
+//  }
+  
 
 }
